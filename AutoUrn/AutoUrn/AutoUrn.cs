@@ -27,7 +27,7 @@ namespace AutoUrn
 
             if (!me.IsChanneling() && target != null)
             {
-                if (me.CanCast() && urn_of_shadows.CanBeCasted() && target.Health <= 150 && target.Distance2D(me) <= 950 && !target.IsIllusion && target.IsAlive && Utils.SleepCheck("urn") && urn_of_shadows.CurrentCharges > 0)
+                if (me.CanCast() && urn_of_shadows.CanBeCasted() && target.Health <= 150 && target.Distance2D(me) <= 950 && !target.IsIllusion && target.IsAlive && Utils.SleepCheck("urn") && target.Modifiers.ToList().Exists(x => x.Name == "modifier_item_urn_damage") && urn_of_shadows.CurrentCharges > 0)
                 {
                     urn_of_shadows.UseAbility(target);
                     Utils.Sleep(200, "urn");
